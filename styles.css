@@ -1,10 +1,15 @@
 body, html{
   height:100%;
 }
+
 body{
   margin: 0px;
-  background-color:#444;
+  background-repeat: no-repeat;
+  background-image: url("https://wallpaper-gallery.net/images/the-shire-wallpapers/the-shire-wallpapers-5.jpg");
+  height: 100%;
+  background-size: cover;
   font-size: 18px;
+  cursor: url('Normal.cur'), auto;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -12,6 +17,18 @@ body, a:link, a:visited, a:active{
 .title, .addDancerButton{
   padding:5px 12px;
   float:right;
+}
+.title, .addBlinkyDancerButton{
+  padding:5px 12px;
+  float:right;
+}
+.title, .addSchuhplattlerDancerButton{
+  padding:5px 12px;
+  float:right;
+}
+.title, .lineUpButton{
+  padding:5px 12px;
+  float:left;
 }
 .topbar{
   height:32px;
@@ -21,7 +38,65 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
   border-radius:10px;
   position:absolute;
 }
+
+.blinkyDancer{
+  border:10px solid red;
+  border-radius:50px;
+  position:absolute;
+}
+
+.schuhplattlerDancer{
+  position:absolute;
+  animation-name: moving; 
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in;
+}
+
+.beer{
+  position:absolute;
+  size: 10%;
+  animation-name: spinning; 
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+  border: none;
+}
+
+.lineUp{
+  vertical-align: middle;
+  animation-name: spinning;
+  align-items: center;
+  float: left;
+  display: flex;
+}
+
+.getBeerButton{
+  padding:5px 12px;
+  float:left;
+}
+
+.change {
+  transform: rotate(360deg);
+  transform: rotate(360deg);
+  cursor: url('Normal.cur'), auto;
+}
+
+
+@keyframes moving {
+  from {bottom: 30%
+  } 
+  to {
+    top: 40%;
+  }
+}
+
+
+@-moz-keyframes spinning { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spinning { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spinning { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
