@@ -1,34 +1,32 @@
-describe('maypoleDancer', function() {
+describe('beerDancer', function() {
 
-  var maypoleDancer, clock;
+  var beerDancer, clock;
   var timeBetweenSteps = 30;
 
   beforeEach(function() {
     clock = sinon.useFakeTimers();
-    maypoleDancer = new makeMaypoleDancer(10, 20, timeBetweenSteps);
+    beerDancer = new makeBeerDancer(10, 20, timeBetweenSteps);
   });
 
   it('should have a jQuery $node object', function() {
-    expect(maypoleDancer.$node).to.be.an.instanceof(jQuery);
+    expect(beerDancer.$node).to.be.an.instanceof(jQuery);
   });
-
-  it('should have a step function that makes its node blink', function() {
-    sinon.spy(maypoleDancer.$node, 'toggle');
-    maypoleDancer.step();
-    expect(maypoleDancer.$node.toggle.called).to.be.true;
+  
+  it('should have a lineup method', function() {
+    expect(typeof beerDancer.lineUp).to.equal('function');
   });
 
   describe('dance', function() {
     it('should call step at least once per second', function() {
-      sinon.spy(maypoleDancer, 'step');
-      expect(maypoleDancer.step.callCount).to.be.equal(0);
+      sinon.spy(beerDancer, 'step');
+      expect(beerDancer.step.callCount).to.be.equal(0);
       clock.tick(timeBetweenSteps); // ? it seems an extra tick is necessary...
       clock.tick(timeBetweenSteps);
 
-      expect(maypoleDancer.step.callCount).to.be.equal(1);
+      expect(beerDancer.step.callCount).to.be.equal(1);
 
       clock.tick(timeBetweenSteps);
-      expect(maypoleDancer.step.callCount).to.be.equal(2);
+      expect(beerDancer.step.callCount).to.be.equal(2);
     });
   });
 });

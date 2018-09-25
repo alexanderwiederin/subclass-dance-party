@@ -17,6 +17,10 @@ describe('blinkyDancer', function() {
     blinkyDancer.step();
     expect(blinkyDancer.$node.toggle.called).to.be.true;
   });
+  
+  it('should have a lineup method', function() {
+    expect(typeof blinkyDancer.lineUp).to.equal('function');
+  });
 
   describe('dance', function() {
     it('should call step at least once per second', function() {

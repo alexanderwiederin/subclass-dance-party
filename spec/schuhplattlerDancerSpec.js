@@ -11,11 +11,9 @@ describe('schuhplattlerDancer', function() {
   it('should have a jQuery $node object', function() {
     expect(schuhplattlerDancer.$node).to.be.an.instanceof(jQuery);
   });
-
-  it('should have a step function that makes its node blink', function() {
-    sinon.spy(schuhplattlerDancer.$node, 'toggle');
-    schuhplattlerDancer.step();
-    expect(schuhplattlerDancer.$node.toggle.called).to.be.true;
+  
+  it('should have a lineup method', function() {
+    expect(typeof schuhplattlerDancer.lineUp).to.equal('function');
   });
 
   describe('dance', function() {
